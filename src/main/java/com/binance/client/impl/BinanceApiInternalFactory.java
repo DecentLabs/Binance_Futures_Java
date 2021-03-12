@@ -28,7 +28,7 @@ public final class BinanceApiInternalFactory {
         RequestOptions requestOptions = new RequestOptions();
         try {
             String host = new URI(options.getUri()).getHost();
-            requestOptions.setUrl("https://" + host);
+            requestOptions.setServerUrl("https://" + host);
         } catch (Exception e) {
 
         }
