@@ -630,7 +630,7 @@ class RestApiRequestImpl {
         request.jsonParser = (jsonWrapper -> {
             Order result = new Order();
             result.setClientOrderId(jsonWrapper.getString("clientOrderId"));
-            result.setCumQuote(jsonWrapper.getBigDecimal("cumQuote"));
+            result.setCumQuote(jsonWrapper.getBigDecimalOrDefault("cumQuote", null));
             result.setExecutedQty(jsonWrapper.getBigDecimal("executedQty"));
             result.setOrderId(jsonWrapper.getLong("orderId"));
             result.setOrigQty(jsonWrapper.getBigDecimal("origQty"));
@@ -753,7 +753,7 @@ class RestApiRequestImpl {
         request.jsonParser = (jsonWrapper -> {
             Order result = new Order();
             result.setClientOrderId(jsonWrapper.getString("clientOrderId"));
-            result.setCumQuote(jsonWrapper.getBigDecimal("cumQuote"));
+            result.setCumQuote(jsonWrapper.getBigDecimalOrDefault("cumQuote", null));
             result.setExecutedQty(jsonWrapper.getBigDecimal("executedQty"));
             result.setOrderId(jsonWrapper.getLong("orderId"));
             result.setOrigQty(jsonWrapper.getBigDecimal("origQty"));
@@ -881,7 +881,7 @@ class RestApiRequestImpl {
             dataArray.forEach((item) -> {
                 Order element = new Order();
                 element.setClientOrderId(item.getString("clientOrderId"));
-                element.setCumQuote(item.getBigDecimal("cumQuote"));
+                element.setCumQuote(item.getBigDecimalOrDefault("cumQuote", null));
                 element.setExecutedQty(item.getBigDecimal("executedQty"));
                 element.setOrderId(item.getLong("orderId"));
                 element.setOrigQty(item.getBigDecimal("origQty"));
@@ -972,14 +972,14 @@ class RestApiRequestImpl {
             result.setCanTrade(jsonWrapper.getBoolean("canTrade"));
             result.setCanWithdraw(jsonWrapper.getBoolean("canWithdraw"));
             result.setFeeTier(jsonWrapper.getBigDecimal("feeTier"));
-            result.setMaxWithdrawAmount(jsonWrapper.getBigDecimal("maxWithdrawAmount"));
-            result.setTotalInitialMargin(jsonWrapper.getBigDecimal("totalInitialMargin"));
-            result.setTotalMaintMargin(jsonWrapper.getBigDecimal("totalMaintMargin"));
-            result.setTotalMarginBalance(jsonWrapper.getBigDecimal("totalMarginBalance"));
-            result.setTotalOpenOrderInitialMargin(jsonWrapper.getBigDecimal("totalOpenOrderInitialMargin"));
-            result.setTotalPositionInitialMargin(jsonWrapper.getBigDecimal("totalPositionInitialMargin"));
-            result.setTotalUnrealizedProfit(jsonWrapper.getBigDecimal("totalUnrealizedProfit"));
-            result.setTotalWalletBalance(jsonWrapper.getBigDecimal("totalWalletBalance"));
+            result.setMaxWithdrawAmount(jsonWrapper.getBigDecimalOrDefault("maxWithdrawAmount", null));
+            result.setTotalInitialMargin(jsonWrapper.getBigDecimalOrDefault("totalInitialMargin", null));
+            result.setTotalMaintMargin(jsonWrapper.getBigDecimalOrDefault("totalMaintMargin", null));
+            result.setTotalMarginBalance(jsonWrapper.getBigDecimalOrDefault("totalMarginBalance", null));
+            result.setTotalOpenOrderInitialMargin(jsonWrapper.getBigDecimalOrDefault("totalOpenOrderInitialMargin", null));
+            result.setTotalPositionInitialMargin(jsonWrapper.getBigDecimalOrDefault("totalPositionInitialMargin", null));
+            result.setTotalUnrealizedProfit(jsonWrapper.getBigDecimalOrDefault("totalUnrealizedProfit", null));
+            result.setTotalWalletBalance(jsonWrapper.getBigDecimalOrDefault("totalWalletBalance", null));
             result.setUpdateTime(jsonWrapper.getLong("updateTime"));
 
             List<Asset> assetList = new LinkedList<>();
@@ -1011,7 +1011,7 @@ class RestApiRequestImpl {
                 element.setSymbol(item.getString("symbol"));
                 element.setUnrealizedProfit(item.getBigDecimal("unrealizedProfit"));
                 element.setEntryPrice(item.getString("entryPrice"));
-                element.setMaxNotional(item.getString("maxNotional"));
+                element.setMaxNotional(item.getStringOrDefault("maxNotional", null));
                 element.setPositionSide(item.getString("positionSide"));
                 positionList.add(element);
             });
@@ -1054,10 +1054,10 @@ class RestApiRequestImpl {
                 PositionRisk element = new PositionRisk();
                 element.setEntryPrice(item.getBigDecimal("entryPrice"));
                 element.setLeverage(item.getBigDecimal("leverage"));
-                if(item.getString("maxNotionalValue").equals("INF")) {
+                if("INF".equals(item.getStringOrDefault("maxNotionalValue", null))) {
                     element.setMaxNotionalValue(Double.POSITIVE_INFINITY);
                 } else {
-                    element.setMaxNotionalValue(item.getDouble("maxNotionalValue"));
+                    element.setMaxNotionalValue(item.getDoubleOrDefault("maxNotionalValue", null));
                 }
                 element.setLiquidationPrice(item.getBigDecimal("liquidationPrice"));
                 element.setMarkPrice(item.getBigDecimal("markPrice"));
@@ -1099,7 +1099,7 @@ class RestApiRequestImpl {
                 element.setOrderId(item.getLong("orderId"));
                 element.setPrice(item.getBigDecimal("price"));
                 element.setQty(item.getBigDecimal("qty"));
-                element.setQuoteQty(item.getBigDecimal("quoteQty"));
+                element.setQuoteQty(item.getBigDecimalOrDefault("quoteQty", null));
                 element.setRealizedPnl(item.getBigDecimal("realizedPnl"));
                 element.setSide(item.getString("side"));
                 element.setPositionSide(item.getString("positionSide"));
