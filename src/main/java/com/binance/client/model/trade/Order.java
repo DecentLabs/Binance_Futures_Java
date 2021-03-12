@@ -39,6 +39,24 @@ public class Order {
 
     private String workingType;
 
+    private BigDecimal avgPrice;
+
+    private BigDecimal cumBase;
+
+    private String origType;
+
+    private Boolean closePosition;
+
+    private Long time;
+
+    private BigDecimal activatePrice;
+
+    private BigDecimal priceRate;
+
+    private Boolean priceProtect;
+
+    private String pair;
+
     public String getClientOrderId() {
         return clientOrderId;
     }
@@ -167,6 +185,78 @@ public class Order {
         this.workingType = workingType;
     }
 
+    public BigDecimal getAvgPrice() {
+        return avgPrice;
+    }
+
+    public void setAvgPrice(BigDecimal avgPrice) {
+        this.avgPrice = avgPrice;
+    }
+
+    public BigDecimal getCumBase() {
+        return cumBase;
+    }
+
+    public void setCumBase(BigDecimal cumBase) {
+        this.cumBase = cumBase;
+    }
+
+    public String getOrigType() {
+        return origType;
+    }
+
+    public void setOrigType(String origType) {
+        this.origType = origType;
+    }
+
+    public Boolean getClosePosition() {
+        return closePosition;
+    }
+
+    public void setClosePosition(Boolean closePosition) {
+        this.closePosition = closePosition;
+    }
+
+    public Long getTime() {
+        return time;
+    }
+
+    public void setTime(Long time) {
+        this.time = time;
+    }
+
+    public BigDecimal getActivatePrice() {
+        return activatePrice;
+    }
+
+    public void setActivatePrice(BigDecimal activatePrice) {
+        this.activatePrice = activatePrice;
+    }
+
+    public BigDecimal getPriceRate() {
+        return priceRate;
+    }
+
+    public void setPriceRate(BigDecimal priceRate) {
+        this.priceRate = priceRate;
+    }
+
+    public Boolean getPriceProtect() {
+        return priceProtect;
+    }
+
+    public void setPriceProtect(Boolean priceProtect) {
+        this.priceProtect = priceProtect;
+    }
+
+    public String getPair() {
+        return pair;
+    }
+
+    public void setPair(String pair) {
+        this.pair = pair;
+    }
+
     @Override
     public String toString() {
         return new ToStringBuilder(this, BinanceApiConstants.TO_STRING_BUILDER_STYLE)
@@ -174,6 +264,11 @@ public class Order {
                 .append("orderId", orderId).append("origQty", origQty).append("price", price)
                 .append("reduceOnly", reduceOnly).append("side", side).append("positionSide", positionSide).append("status", status)
                 .append("stopPrice", stopPrice).append("symbol", symbol).append("timeInForce", timeInForce)
-                .append("type", type).append("updateTime", updateTime).append("workingType", workingType).toString();
+                .append("type", type).append("updateTime", updateTime).append("workingType", workingType)
+                .append("avgPrice", avgPrice).append("cumBase", cumBase)
+                .append("origType", origType).append("closePosition", closePosition)
+                .append("time", time).append("activatePrice", activatePrice)
+                .append("priceRate", priceRate).append("priceProtect", priceProtect)
+                .append("pair", pair).toString();
     }
 }

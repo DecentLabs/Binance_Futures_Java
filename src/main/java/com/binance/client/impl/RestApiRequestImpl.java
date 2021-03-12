@@ -400,6 +400,10 @@ class RestApiRequestImpl {
                 element.setLastFundingRate(item.getBigDecimal("lastFundingRate"));
                 element.setNextFundingTime(item.getLong("nextFundingTime"));
                 element.setTime(item.getLong("time"));
+                element.setPair(item.getStringOrDefault("pair", null));
+                element.setIndexPrice(item.getBigDecimalOrDefault("indexPrice", null));
+                element.setEstimatedSettlePrice(item.getBigDecimalOrDefault("estimatedSettlePrice", null));
+                element.setInterestRate(item.getBigDecimalOrDefault("interestRate", null));
                 result.add(element);
             });
 
@@ -492,6 +496,8 @@ class RestApiRequestImpl {
                 SymbolPrice element = new SymbolPrice();
                 element.setSymbol(item.getString("symbol"));
                 element.setPrice(item.getBigDecimal("price"));
+                element.setPs(item.getBigDecimalOrDefault("ps", null));
+                element.setTime(item.getLongOrDefault("time", 0L));
                 result.add(element);
             });
 
@@ -645,6 +651,15 @@ class RestApiRequestImpl {
             result.setType(jsonWrapper.getString("type"));
             result.setUpdateTime(jsonWrapper.getLong("updateTime"));
             result.setWorkingType(jsonWrapper.getString("workingType"));
+            result.setAvgPrice(jsonWrapper.getBigDecimalOrDefault("avgPrice", null));
+            result.setCumBase(jsonWrapper.getBigDecimalOrDefault("cumBase", null));
+            result.setOrigType(jsonWrapper.getStringOrDefault("origType", null));
+            result.setClosePosition(jsonWrapper.getBooleanOrDefault("closePosition", null));
+            result.setTime(jsonWrapper.getLongOrDefault("time", 0L));
+            result.setActivatePrice(jsonWrapper.getBigDecimalOrDefault("activatePrice", null));
+            result.setPriceRate(jsonWrapper.getBigDecimalOrDefault("priceRate", null));
+            result.setPriceProtect(jsonWrapper.getBooleanOrDefault("priceProtect", null));
+            result.setPair(jsonWrapper.getStringOrDefault("pair", null));
             return result;
         });
         return request;
@@ -768,6 +783,15 @@ class RestApiRequestImpl {
             result.setType(jsonWrapper.getString("type"));
             result.setUpdateTime(jsonWrapper.getLong("updateTime"));
             result.setWorkingType(jsonWrapper.getString("workingType"));
+            result.setAvgPrice(jsonWrapper.getBigDecimalOrDefault("avgPrice", null));
+            result.setCumBase(jsonWrapper.getBigDecimalOrDefault("cumBase", null));
+            result.setOrigType(jsonWrapper.getStringOrDefault("origType", null));
+            result.setClosePosition(jsonWrapper.getBooleanOrDefault("closePosition", null));
+            result.setTime(jsonWrapper.getLongOrDefault("time", 0L));
+            result.setActivatePrice(jsonWrapper.getBigDecimalOrDefault("activatePrice", null));
+            result.setPriceRate(jsonWrapper.getBigDecimalOrDefault("priceRate", null));
+            result.setPriceProtect(jsonWrapper.getBooleanOrDefault("priceProtect", null));
+            result.setPair(jsonWrapper.getStringOrDefault("pair", null));
             return result;
         });
         return request;
@@ -864,6 +888,15 @@ class RestApiRequestImpl {
             result.setType(jsonWrapper.getString("type"));
             result.setUpdateTime(jsonWrapper.getLong("updateTime"));
             result.setWorkingType(jsonWrapper.getString("workingType"));
+            result.setAvgPrice(jsonWrapper.getBigDecimalOrDefault("avgPrice", null));
+            result.setCumBase(jsonWrapper.getBigDecimalOrDefault("cumBase", null));
+            result.setOrigType(jsonWrapper.getStringOrDefault("origType", null));
+            result.setClosePosition(jsonWrapper.getBooleanOrDefault("closePosition", null));
+            result.setTime(jsonWrapper.getLongOrDefault("time", 0L));
+            result.setActivatePrice(jsonWrapper.getBigDecimalOrDefault("activatePrice", null));
+            result.setPriceRate(jsonWrapper.getBigDecimalOrDefault("priceRate", null));
+            result.setPriceProtect(jsonWrapper.getBooleanOrDefault("priceProtect", null));
+            result.setPair(jsonWrapper.getStringOrDefault("pair", null));
             return result;
         });
         return request;
@@ -896,6 +929,15 @@ class RestApiRequestImpl {
                 element.setType(item.getString("type"));
                 element.setUpdateTime(item.getLong("updateTime"));
                 element.setWorkingType(item.getString("workingType"));
+                element.setAvgPrice(item.getBigDecimalOrDefault("avgPrice", null));
+                element.setCumBase(item.getBigDecimalOrDefault("cumBase", null));
+                element.setOrigType(item.getStringOrDefault("origType", null));
+                element.setClosePosition(item.getBooleanOrDefault("closePosition", null));
+                element.setTime(item.getLongOrDefault("time", 0L));
+                element.setActivatePrice(item.getBigDecimalOrDefault("activatePrice", null));
+                element.setPriceRate(item.getBigDecimalOrDefault("priceRate", null));
+                element.setPriceProtect(item.getBooleanOrDefault("priceProtect", null));
+                element.setPair(item.getStringOrDefault("pair", null));
                 result.add(element);
             });
             return result;
@@ -934,6 +976,15 @@ class RestApiRequestImpl {
                 element.setType(item.getString("type"));
                 element.setUpdateTime(item.getLong("updateTime"));
                 element.setWorkingType(item.getString("workingType"));
+                element.setAvgPrice(item.getBigDecimalOrDefault("avgPrice", null));
+                element.setCumBase(item.getBigDecimalOrDefault("cumBase", null));
+                element.setOrigType(item.getStringOrDefault("origType", null));
+                element.setClosePosition(item.getBooleanOrDefault("closePosition", null));
+                element.setTime(item.getLongOrDefault("time", 0L));
+                element.setActivatePrice(item.getBigDecimalOrDefault("activatePrice", null));
+                element.setPriceRate(item.getBigDecimalOrDefault("priceRate", null));
+                element.setPriceProtect(item.getBooleanOrDefault("priceProtect", null));
+                element.setPair(item.getStringOrDefault("pair", null));
                 result.add(element);
             });
             return result;
@@ -994,6 +1045,10 @@ class RestApiRequestImpl {
                 element.setOpenOrderInitialMargin(item.getBigDecimal("openOrderInitialMargin"));
                 element.setPositionInitialMargin(item.getBigDecimal("positionInitialMargin"));
                 element.setUnrealizedProfit(item.getBigDecimal("unrealizedProfit"));
+                element.setWalletBalance(item.getBigDecimalOrDefault("walletBalance", null));
+                element.setCrossWalletBalance(item.getBigDecimalOrDefault("crossWalletBalance", null));
+                element.setCrossUnPnl(item.getBigDecimalOrDefault("crossUnPnl", null));
+                element.setAvailableBalance(item.getBigDecimalOrDefault("availableBalance", null));
                 assetList.add(element);
             });
             result.setAssets(assetList);
@@ -1013,6 +1068,7 @@ class RestApiRequestImpl {
                 element.setEntryPrice(item.getString("entryPrice"));
                 element.setMaxNotional(item.getStringOrDefault("maxNotional", null));
                 element.setPositionSide(item.getString("positionSide"));
+                element.setMaxQty(item.getBigDecimalOrDefault("maxQty", null));
                 positionList.add(element);
             });
             result.setPositions(positionList);

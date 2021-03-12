@@ -23,6 +23,14 @@ public class Asset {
 
     private BigDecimal unrealizedProfit;
 
+    private BigDecimal walletBalance;
+
+    private BigDecimal crossWalletBalance;
+
+    private BigDecimal crossUnPnl;
+
+    private BigDecimal availableBalance;
+
     public String getAsset() {
         return asset;
     }
@@ -87,6 +95,38 @@ public class Asset {
         this.unrealizedProfit = unrealizedProfit;
     }
 
+    public BigDecimal getWalletBalance() {
+        return walletBalance;
+    }
+
+    public void setWalletBalance(BigDecimal walletBalance) {
+        this.walletBalance = walletBalance;
+    }
+
+    public BigDecimal getCrossWalletBalance() {
+        return crossWalletBalance;
+    }
+
+    public void setCrossWalletBalance(BigDecimal crossWalletBalance) {
+        this.crossWalletBalance = crossWalletBalance;
+    }
+
+    public BigDecimal getCrossUnPnl() {
+        return crossUnPnl;
+    }
+
+    public void setCrossUnPnl(BigDecimal crossUnPnl) {
+        this.crossUnPnl = crossUnPnl;
+    }
+
+    public BigDecimal getAvailableBalance() {
+        return availableBalance;
+    }
+
+    public void setAvailableBalance(BigDecimal availableBalance) {
+        this.availableBalance = availableBalance;
+    }
+
     @Override
     public String toString() {
         return new ToStringBuilder(this, BinanceApiConstants.TO_STRING_BUILDER_STYLE).append("asset", asset)
@@ -94,6 +134,8 @@ public class Asset {
                 .append("marginBalance", marginBalance).append("maxWithdrawAmount", maxWithdrawAmount)
                 .append("openOrderInitialMargin", openOrderInitialMargin)
                 .append("positionInitialMargin", positionInitialMargin).append("unrealizedProfit", unrealizedProfit)
+                .append("walletBalance", walletBalance).append("crossWalletBalance", crossWalletBalance)
+                .append("crossUnPnl", crossUnPnl).append("availableBalance", availableBalance)
                 .toString();
     }
 }
