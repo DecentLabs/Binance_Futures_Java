@@ -873,7 +873,7 @@ class RestApiRequestImpl {
         request.jsonParser = (jsonWrapper -> {
             Order result = new Order();
             result.setClientOrderId(jsonWrapper.getString("clientOrderId"));
-            result.setCumQuote(jsonWrapper.getBigDecimal("cumQuote"));
+            result.setCumQuote(jsonWrapper.getBigDecimalOrDefault("cumQuote", null));
             result.setExecutedQty(jsonWrapper.getBigDecimal("executedQty"));
             result.setOrderId(jsonWrapper.getLong("orderId"));
             result.setOrigQty(jsonWrapper.getBigDecimal("origQty"));
