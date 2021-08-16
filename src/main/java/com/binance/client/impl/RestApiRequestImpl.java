@@ -1146,20 +1146,23 @@ class RestApiRequestImpl {
             JsonWrapperArray dataArray = jsonWrapper.getJsonArray("data");
             dataArray.forEach((item) -> {
                 MyTrade element = new MyTrade();
+                element.setId(item.getLong("id"));
+                element.setOrderId(item.getLong("orderId"));
                 element.setIsBuyer(item.getBoolean("buyer"));
                 element.setCommission(item.getBigDecimal("commission"));
                 element.setCommissionAsset(item.getString("commissionAsset"));
                 element.setCounterPartyId(item.getLongOrDefault("counterPartyId", 0));
-                element.setOrderId(item.getLong("orderId"));
                 element.setIsMaker(item.getBoolean("maker"));
-                element.setOrderId(item.getLong("orderId"));
                 element.setPrice(item.getBigDecimal("price"));
                 element.setQty(item.getBigDecimal("qty"));
                 element.setQuoteQty(item.getBigDecimalOrDefault("quoteQty", null));
+                element.setBaseQty(item.getBigDecimalOrDefault("baseQty", null));
                 element.setRealizedPnl(item.getBigDecimal("realizedPnl"));
                 element.setSide(item.getString("side"));
                 element.setPositionSide(item.getString("positionSide"));
                 element.setSymbol(item.getString("symbol"));
+                element.setPair(item.getStringOrDefault("pair", null));
+                element.setMarginAsset(item.getStringOrDefault("marginAsset", null));
                 element.setTime(item.getLong("time"));
                 result.add(element);
             });
