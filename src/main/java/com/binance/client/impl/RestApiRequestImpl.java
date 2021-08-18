@@ -497,7 +497,7 @@ class RestApiRequestImpl {
                 element.setSymbol(item.getString("symbol"));
                 element.setPrice(item.getBigDecimal("price"));
                 element.setPs(item.getBigDecimalOrDefault("ps", null));
-                element.setTime(item.getLongOrDefault("time", 0L));
+                element.setTime(item.getLongOrDefault("time", null));
                 result.add(element);
             });
 
@@ -655,7 +655,7 @@ class RestApiRequestImpl {
             result.setCumBase(jsonWrapper.getBigDecimalOrDefault("cumBase", null));
             result.setOrigType(jsonWrapper.getStringOrDefault("origType", null));
             result.setClosePosition(jsonWrapper.getBooleanOrDefault("closePosition", null));
-            result.setTime(jsonWrapper.getLongOrDefault("time", 0L));
+            result.setTime(jsonWrapper.getLongOrDefault("time", null));
             result.setActivatePrice(jsonWrapper.getBigDecimalOrDefault("activatePrice", null));
             result.setPriceRate(jsonWrapper.getBigDecimalOrDefault("priceRate", null));
             result.setPriceProtect(jsonWrapper.getBooleanOrDefault("priceProtect", null));
@@ -787,7 +787,7 @@ class RestApiRequestImpl {
             result.setCumBase(jsonWrapper.getBigDecimalOrDefault("cumBase", null));
             result.setOrigType(jsonWrapper.getStringOrDefault("origType", null));
             result.setClosePosition(jsonWrapper.getBooleanOrDefault("closePosition", null));
-            result.setTime(jsonWrapper.getLongOrDefault("time", 0L));
+            result.setTime(jsonWrapper.getLongOrDefault("time", null));
             result.setActivatePrice(jsonWrapper.getBigDecimalOrDefault("activatePrice", null));
             result.setPriceRate(jsonWrapper.getBigDecimalOrDefault("priceRate", null));
             result.setPriceProtect(jsonWrapper.getBooleanOrDefault("priceProtect", null));
@@ -892,7 +892,7 @@ class RestApiRequestImpl {
             result.setCumBase(jsonWrapper.getBigDecimalOrDefault("cumBase", null));
             result.setOrigType(jsonWrapper.getStringOrDefault("origType", null));
             result.setClosePosition(jsonWrapper.getBooleanOrDefault("closePosition", null));
-            result.setTime(jsonWrapper.getLongOrDefault("time", 0L));
+            result.setTime(jsonWrapper.getLongOrDefault("time", null));
             result.setActivatePrice(jsonWrapper.getBigDecimalOrDefault("activatePrice", null));
             result.setPriceRate(jsonWrapper.getBigDecimalOrDefault("priceRate", null));
             result.setPriceProtect(jsonWrapper.getBooleanOrDefault("priceProtect", null));
@@ -933,7 +933,7 @@ class RestApiRequestImpl {
                 element.setCumBase(item.getBigDecimalOrDefault("cumBase", null));
                 element.setOrigType(item.getStringOrDefault("origType", null));
                 element.setClosePosition(item.getBooleanOrDefault("closePosition", null));
-                element.setTime(item.getLongOrDefault("time", 0L));
+                element.setTime(item.getLongOrDefault("time", null));
                 element.setActivatePrice(item.getBigDecimalOrDefault("activatePrice", null));
                 element.setPriceRate(item.getBigDecimalOrDefault("priceRate", null));
                 element.setPriceProtect(item.getBooleanOrDefault("priceProtect", null));
@@ -980,7 +980,7 @@ class RestApiRequestImpl {
                 element.setCumBase(item.getBigDecimalOrDefault("cumBase", null));
                 element.setOrigType(item.getStringOrDefault("origType", null));
                 element.setClosePosition(item.getBooleanOrDefault("closePosition", null));
-                element.setTime(item.getLongOrDefault("time", 0L));
+                element.setTime(item.getLongOrDefault("time", null));
                 element.setActivatePrice(item.getBigDecimalOrDefault("activatePrice", null));
                 element.setPriceRate(item.getBigDecimalOrDefault("priceRate", null));
                 element.setPriceProtect(item.getBooleanOrDefault("priceProtect", null));
@@ -1151,7 +1151,7 @@ class RestApiRequestImpl {
                 element.setIsBuyer(item.getBoolean("buyer"));
                 element.setCommission(item.getBigDecimal("commission"));
                 element.setCommissionAsset(item.getString("commissionAsset"));
-                element.setCounterPartyId(item.getLongOrDefault("counterPartyId", 0));
+                element.setCounterPartyId(item.getLongOrDefault("counterPartyId", null));
                 element.setIsMaker(item.getBoolean("maker"));
                 element.setPrice(item.getBigDecimal("price"));
                 element.setQty(item.getBigDecimal("qty"));
@@ -1193,8 +1193,8 @@ class RestApiRequestImpl {
                 element.setAsset(item.getString("asset"));
                 element.setTime(item.getLong("time"));
                 element.setInfo(item.getStringOrDefault("info", null));
-                element.setTranId(item.getLongOrDefault("tranId", 0L));
-                element.setTradeId(item.getLongOrDefault("tradeId", 0L));
+                element.setTranId(item.getLongOrDefault("tranId", null));
+                element.setTradeId(item.getLongOrDefault("tradeId", null));
                 result.add(element);
             });
             return result;
